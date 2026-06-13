@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - NexaWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Nexa<span>Web</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-a">Home</a></li>
+      <li><a href="pricing.html" class="nav-a active">Pricing</a></li>
+      <li><a href="contact.html" class="nav-a">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🌙</button>
+      <a href="contact.html" class="btn btn-fill">Get started</a>
+      <button class="ham" id="ham">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Page header -->
+  <section class="page-top">
+    <span class="chip">Pricing</span>
+    <h1>Straightforward plans, no hidden costs</h1>
+    <p class="page-sub">Pick what fits your stage. You can switch plans any time from your dashboard.</p>
+
+    <!-- localStorage saved plan notice -->
+    <div class="plan-notice" id="planNotice" style="display:none;">
+      <span>✅ You saved the <strong id="noticePlanName"></strong> plan last time.</span>
+      <button onclick="clearPlan()">Clear</button>
+    </div>
+
+    <!-- Billing toggle -->
+    <div class="toggle-row">
+      <span class="tog-label" id="togMonthly">Monthly</span>
+      <label class="tog-switch">
+        <input type="checkbox" id="billingSwitch" />
+        <span class="tog-track">
+          <span class="tog-thumb"></span>
+        </span>
+      </label>
+      <span class="tog-label" id="togYearly">Yearly</span>
+      <span class="discount-chip">20% off</span>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section class="plans-section">
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <p class="plan-tier">Starter</p>
+        <div class="plan-price-row">
+          <span class="plan-dollar">$</span>
+          <span class="plan-amount" data-m="19" data-y="15">19</span>
+          <span class="plan-period">/mo</span>
+        </div>
+        <p class="plan-desc">Perfect for freelancers and solo developers taking on their first client projects.</p>
+        <ul class="plan-list">
+          <li>3 active projects</li>
+          <li>10 GB storage</li>
+          <li>Basic analytics</li>
+          <li>Email support</li>
+          <li>Free SSL</li>
+        </ul>
+        <button class="btn btn-ghost btn-block" onclick="pickPlan('Starter', this)">Get started</button>
+      </div>
+
+      <div class="plan-card plan-featured">
+        <span class="plan-badge">Most popular</span>
+        <p class="plan-tier">Pro</p>
+        <div class="plan-price-row">
+          <span class="plan-dollar">$</span>
+          <span class="plan-amount" data-m="49" data-y="39">49</span>
+          <span class="plan-period">/mo</span>
+        </div>
+        <p class="plan-desc">For small agencies handling multiple clients who need more storage and priority support.</p>
+        <ul class="plan-list">
+          <li>15 active projects</li>
+          <li>50 GB storage</li>
+          <li>Advanced analytics</li>
+          <li>Priority support</li>
+          <li>Free SSL</li>
+          <li>Custom domain</li>
+        </ul>
+        <button class="btn btn-fill btn-block" onclick="pickPlan('Pro', this)">Start free trial</button>
+      </div>
+
+      <div class="plan-card">
+        <p class="plan-tier">Enterprise</p>
+        <div class="plan-price-row">
+          <span class="plan-dollar">$</span>
+          <span class="plan-amount" data-m="99" data-y="79">99</span>
+          <span class="plan-period">/mo</span>
+        </div>
+        <p class="plan-desc">For large teams and agencies with demanding SLAs and white-label requirements.</p>
+        <ul class="plan-list">
+          <li>Unlimited projects</li>
+          <li>500 GB storage</li>
+          <li>Full analytics suite</li>
+          <li>24/7 support</li>
+          <li>Free SSL</li>
+          <li>Custom domain</li>
+          <li>White label</li>
+        </ul>
+        <button class="btn btn-ghost btn-block" onclick="pickPlan('Enterprise', this)">Contact sales</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Compare table -->
+  <section class="compare-wrap">
+    <span class="section-label">Full comparison</span>
+    <h2>Everything side by side</h2>
+    <div class="table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th>Pro</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Active projects</td>
+            <td>3</td>
+            <td>15</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>10 GB</td>
+            <td>50 GB</td>
+            <td>500 GB</td>
+          </tr>
+          <tr>
+            <td>Analytics</td>
+            <td>Basic</td>
+            <td>Advanced</td>
+            <td>Full suite</td>
+          </tr>
+          <tr>
+            <td>SSL certificate</td>
+            <td class="t-yes">✓</td>
+            <td class="t-yes">✓</td>
+            <td class="t-yes">✓</td>
+          </tr>
+          <tr>
+            <td>Custom domain</td>
+            <td class="t-no">—</td>
+            <td class="t-yes">✓</td>
+            <td class="t-yes">✓</td>
+          </tr>
+          <tr>
+            <td>Priority support</td>
+            <td class="t-no">—</td>
+            <td class="t-yes">✓</td>
+            <td class="t-yes">✓</td>
+          </tr>
+          <tr>
+            <td>White label</td>
+            <td class="t-no">—</td>
+            <td class="t-no">—</td>
+            <td class="t-yes">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-wrap">
+    <span class="section-label">FAQ</span>
+    <h2>Questions we hear a lot</h2>
+    <div class="faq-items">
+
+      <div class="faq-row">
+        <button class="faq-q">
+          Can I switch plans?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes, upgrade or downgrade anytime. Changes apply immediately and billing is prorated to the day.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          Is there a free trial?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>The Pro plan has a 14-day free trial with no card required. You get full access during that period.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          What payment methods do you accept?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>We accept all major cards, UPI, and net banking. Enterprise clients can also pay by bank transfer.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          Do you give refunds?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes — if you're unhappy within the first 7 days of a paid plan, we'll refund you in full, no questions asked.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Plan selected modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+      <button class="modal-x" id="modalX">✕</button>
+      <h3 id="modal-heading">Plan saved!</h3>
+      <p id="modal-body">Your plan has been saved. Head to the contact form to finish signing up.</p>
+      <a href="contact.html" class="btn btn-fill btn-block">Go to contact form</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-row">
+      <div class="footer-about">
+        <a href="index.html" class="logo footer-logo">Nexa<span>Web</span></a>
+        <p>A development agency helping businesses build better digital products.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Refunds</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 NexaWeb. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

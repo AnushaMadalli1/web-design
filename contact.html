@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - NexaWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Nexa<span>Web</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-a">Home</a></li>
+      <li><a href="pricing.html" class="nav-a">Pricing</a></li>
+      <li><a href="contact.html" class="nav-a active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" title="Switch theme">🌙</button>
+      <a href="contact.html" class="btn btn-fill">Get started</a>
+      <button class="ham" id="ham">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <section class="page-top">
+    <span class="chip">Contact</span>
+    <h1>Let's talk about your project</h1>
+    <p class="page-sub">Fill the form below. We read every message and reply within one business day.</p>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-layout">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info">
+        <h3>What happens next?</h3>
+        <div class="info-step">
+          <span class="info-num">1</span>
+          <div>
+            <strong>We review your message</strong>
+            <p>Usually within a few hours during business days.</p>
+          </div>
+        </div>
+        <div class="info-step">
+          <span class="info-num">2</span>
+          <div>
+            <strong>Free project call</strong>
+            <p>We schedule a 30-min call to understand your needs properly.</p>
+          </div>
+        </div>
+        <div class="info-step">
+          <span class="info-num">3</span>
+          <div>
+            <strong>We send a proposal</strong>
+            <p>A clear scope, timeline, and cost — no surprise fees ever.</p>
+          </div>
+        </div>
+
+        <!-- Show saved plan from localStorage -->
+        <div class="saved-plan-box" id="savedPlanBox" style="display:none;">
+          <p class="saved-label">Your selected plan</p>
+          <p class="saved-value" id="savedPlanValue"></p>
+          <a href="pricing.html" class="saved-change">Change plan →</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-box">
+        <form id="contactForm" novalidate>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="fname">First name <span class="req">*</span></label>
+              <input type="text" id="fname" placeholder="Ravi" />
+              <span class="err" id="err-fname"></span>
+            </div>
+            <div class="field-group">
+              <label for="lname">Last name <span class="req">*</span></label>
+              <input type="text" id="lname" placeholder="Kumar" />
+              <span class="err" id="err-lname"></span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email address <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="ravi@company.com" />
+            <span class="err" id="err-email"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210" />
+            <span class="err" id="err-phone"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="service">Service you need</label>
+            <select id="service">
+              <option value="">Select one</option>
+              <option value="web">Web Development</option>
+              <option value="mobile">Mobile App</option>
+              <option value="saas">SaaS Product</option>
+              <option value="other">Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="message">Your message <span class="req">*</span></label>
+            <textarea id="message" rows="5" placeholder="Tell us what you're building — even a rough idea is fine."></textarea>
+            <span class="err" id="err-message"></span>
+          </div>
+
+          <div class="field-group checkbox-row">
+            <label class="check-label">
+              <input type="checkbox" id="consent" />
+              I agree to the <a href="#">privacy policy</a> and am okay with being contacted.
+            </label>
+            <span class="err" id="err-consent"></span>
+          </div>
+
+          <button type="submit" class="btn btn-fill btn-block" id="submitBtn">Send message</button>
+
+          <div id="form-feedback" class="form-feedback"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-row">
+      <div class="footer-about">
+        <a href="index.html" class="logo footer-logo">Nexa<span>Web</span></a>
+        <p>A development agency helping businesses build better digital products.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Refunds</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 NexaWeb. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
